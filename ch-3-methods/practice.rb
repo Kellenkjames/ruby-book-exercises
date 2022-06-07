@@ -26,3 +26,13 @@ def print_num(num)
 end 
 
 ###########################
+
+# Mutating the Caller 
+def some_method(number) 
+  number = 7 # implicitly returned by the method
+end 
+
+a = 5
+some_method(a) # This proves that method definitions cannot modify arguments passed into them permanently 
+puts a 
+
