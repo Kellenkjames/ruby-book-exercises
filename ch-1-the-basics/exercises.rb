@@ -17,3 +17,18 @@ puts "thousands place:___#{thousands_place}"
 puts "hundrerds place:__#{hundreds_place}"
 puts "tens***** place:_#{tens_place}"
 puts "ones***** place:#{ones_place}"
+
+# 3. Write a program that uses a hash to store a list of movie titles with the year they came out. Then use the puts command to make your program print out the year of each movie to the screen. 
+
+movie_titles = {
+  :Matrix => 1999,
+  :Morbious => 2022,
+  :Avengers => 2012,
+  :IronMan => 2008,
+  :Godzilla => 2003
+}
+
+movie_titles.each_value { |value| puts value }
+
+
+
