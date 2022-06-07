@@ -21,16 +21,16 @@ puts age + 40
 
 puts "-----------------------------"
 
-#5. Look at the following programs... 
+5. Look at the following programs... 
 x = 0
 3.times do 
   x += 1
 end 
 puts x  # Expect 3
 
-y = 0
-3.times do 
-  y += 1
-  x = y
-end 
-puts a # Expect 3
+# y = 0
+# 3.times do 
+#   y += 1
+#   x = y
+# end 
+# puts x # Expect error because "x" is declared within the inner scope
