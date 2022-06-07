@@ -14,9 +14,12 @@ p "---------------------------"
 
 # Example of a method definition that does not mutate the caller 
 def no_mutate(array)
-    array.last
+    array.last # the last method does not mutate the caller 
 end 
 
 p "Before no_mutate method: #{a}"
 no_mutate(a)
 p "After no_mutate method: #{a}"
+
+p "---------------------------"
+
