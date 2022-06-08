@@ -55,8 +55,8 @@ puts "Exercise 4"
 
 # Snippet 2
 x = 2
-if ((x * 3) / 2) == (4 +4 - x -3) # true | program will end here
-  puts "Did you get it right?"
+if ((x * 3) / 2) == (4 +4 - x -3) # true 
+  puts "Did you get it right?" # program ends here 
 else 
   puts "Did you?"
 end 
@@ -66,8 +66,8 @@ y = 9
 x = 10
 if (x + 1) <= (y) # 11 <= 9 (false)
   puts "Alright."
-elsif (x + 1) >= (y) # 11 >= 9 (true) // program will end here 
-  puts "Alright now!"
+elsif (x + 1) >= (y) # 11 >= 9 (true) 
+  puts "Alright now!" # program ends here 
 elsif (y + 1) == x 
   puts "ALRIGHT NOW!"
 else 
@@ -88,6 +88,8 @@ def equal_to_four(x)
   puts "nope"
 end 
 
+equal_to_four(5)
+
 p "-------------------------------------------------------"
 
 puts "Exercise 6"
@@ -98,3 +100,4 @@ puts '847' < '846' # false
 puts '847' > '846' # true 
 puts '847' > '8478' # false 
 puts '847' < '8478' # true 
+
