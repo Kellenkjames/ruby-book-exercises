@@ -39,7 +39,7 @@ puts "x is 3" if x ==  3
 # Unless - acts the opposite of "if" 
 puts "x is NOT 3" unless x ==  3
 
-p "---------------------------------------"
+#############################
 
 # Comparison - when comparing strings, the comparison is character-by-character. 
 
@@ -58,3 +58,41 @@ p "---------------------------------------"
 # 3. && [Logical]
 
 # 4. || 
+
+p "---------------------------------------"
+
+if x && y || z
+  # do something
+end 
+
+# First the "x && y" statement will be executed. If that statement is true, then the program will execute the # do something code on the next line. 
+
+# If the "x && y" statement is false, then the "z" will be evaluated. If the "z" is true, the code on the next line will be evaluated. If the "z" is false, then the code will exit the "if" statement. 
+
+# One of the two statements must be "true" in order to execute the # do something - both can't be false.
+
+# Ternary Operator Example
+true ? "this is true" : "this is not true"
+
+false ? "this is true" : "this is not true"
+
+# True / False 
+b = 5
+if b
+    puts "how can this be true?"
+else 
+  puts "it is not true"
+end 
+
+# In Ruby, every expression evaluates as true when used in flow control, except for "false" and "nil"
+if c = 5
+  puts "how can this be true?"
+else
+  puts "it is not true"
+end 
+
+# The above code is not testing whether x is equal to "5". It's assigning the variable "x" the value of "5" which will always evaluate to "true".
+
+
+
+
