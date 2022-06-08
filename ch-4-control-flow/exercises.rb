@@ -11,6 +11,8 @@ false == (847 == '874') # true
 
 (!true || (!(100 / 5) == 20) || ((328 / 4) == 82)) || false # true 
 
+p "-------------------------------------------------------"
+
 # 2. Write a method that takes a "string" as an argument. The method should return a new, all-caps version of the string, only if the string is longer than 10 characters. Example: change "hello world" to "HELLO WORLD"
 puts "Exercise 2"
 
@@ -22,25 +24,28 @@ def all_caps(string)
   end 
 end 
 
+puts all_caps("testing")
 puts all_caps("hello world")
+
+p "-------------------------------------------------------"
 
 # 3. Write a program that takes a number from the user between 0 and 100 and reports back whether the number is between 0 and 50, 51, and 100, or above 100. 
 puts "Exercise 3"
 
-def find_num()
-  puts "Please enter a number"
-  num = gets.chomp.to_i
-  
-  if num >= 0 && num <= 50  # number from 0 - 50 
-    puts "number is between 0-50"
-  elsif num >= 51 && num <= 100 # number from 51 - 100
-    puts "number is between 51-100"
-  else # number above 100
-    puts "number is above 100"
-  end
-end
+puts "Please enter a number between 0 and 100."
+number = gets.chomp.to_i
 
-puts find_num
+if number < 0
+  puts "You can't enter a negative number!"
+elsif number <= 50
+  puts "#{number} is between 0 and 50"
+elsif number <= 100
+  puts "#{number} is between 51 and 100"
+else 
+  puts "#{number} is above 100"
+end 
+
+p "-------------------------------------------------------"
 
 # 4. What will each block of code below print to the screen? Write your answer on a piece of paper or in a text editor and then run each block of code to see if you were correct. 
 puts "Exercise 4"
@@ -50,7 +55,7 @@ puts "Exercise 4"
 
 # Snippet 2
 x = 2
-if ((x * 3) / 2) == (4 +4 - x -3) # true | "Did you get it right?"
+if ((x * 3) / 2) == (4 +4 - x -3) # true | program will end here
   puts "Did you get it right?"
 else 
   puts "Did you?"
@@ -69,12 +74,12 @@ else
   puts "Alrighty!"
 end 
 
-p "--------------------------------------------------"
+p "-------------------------------------------------------"
 
 # You get the following error message: syntax error, unexpected end-of-input, expecting keyword_end 
 puts "Exercise 5"
 
-# The if "block" is missing a closing "end" statement 
+# The if "block" was missing a closing "end" statement 
 def equal_to_four(x)
   if x == 4
     puts "yup"
@@ -83,6 +88,13 @@ def equal_to_four(x)
   puts "nope"
 end 
 
-p "--------------------------------------------------"
+p "-------------------------------------------------------"
 
 puts "Exercise 6"
+
+# (32 * 4) >= "129" # error (comparison of Integer with String failed) 
+puts 847 == '874' # false 
+puts '847' < '846' # false 
+puts '847' > '846' # true 
+puts '847' > '8478' # false 
+puts '847' < '8478' # true 
