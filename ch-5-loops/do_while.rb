@@ -1,16 +1,17 @@
 # perform_again.rb
 
-# In a do/while loop, the code within the loop gets executed one time and the conditional check is placed at the "end"
+# do / while loop (emulation)
 loop do 
-  puts "Do you want to do that again - part 1?"
+  puts "Do you want to do that again?"
   answer = gets.chomp
-  if answer != 'Y' # If answer is not 'Y', break out of the loop
+  if answer != 'Y'
     break 
   end 
 end 
 
-# begin loops (this method is not recommended)
-begin 
-  puts "Do you want to do that again - part 2?"
-  answer = gets.chomp 
-end while answer == 'Y'
+# while loop 
+x = 0 
+while x <= 15
+  puts x 
+  x += 5
+end 
