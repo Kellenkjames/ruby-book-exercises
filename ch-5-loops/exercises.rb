@@ -5,38 +5,37 @@ puts "Exercise 1"
 
 x = [1, 2, 3, 4, 5]
 x.each do |a| 
-  a + 1 
+   a + 1 
 end 
 
-# Answer: Adds one to each index... 2, 3, 4, 5, 6
+# Answer:  The original collection ... => [1, 2, 3, 4, 5]
 
 # 2. Write a while loop that takes input from the user, performs an action, and only stops when the user types "STOP". Each loop can get info from the user. 
 puts "Exercise 2"
 
 p "-----------------------------------------------------------"
 
-y = 0 
-
-while y <= 5 
-  x = gets.chomp.to_s.upcase
-  if x == 'STOP'
-    break 
-  end 
-  puts "Please enter stop to end loop, otherwise keep going. "
-  y += 1
-end
+x = ''
+while x != 'STOP' do 
+  puts 'Hi, how are you feeling?'
+  answer = gets.chomp
+  puts "Want me to ask you again?"
+  x = gets.chomp
+end 
 
 p "-----------------------------------------------------------"
 
 # 3. Write a method that counts down to zero using recursion
 puts "Exercise 3"
 
-def countdown(number)
-  puts number 
-  if number > 0
-    countdown(number - 1)
-  end 
+def count_to_zero(number)
+  if number <= 0 
+    puts number 
+  else 
+    puts number
+    count_to_zero(number - 1)
+  end
 end
 
-countdown(12)
+count_to_zero(10)
 
