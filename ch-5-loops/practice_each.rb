@@ -1,11 +1,11 @@
 # practice_each.rb
 
-# Iterators are methods that naturally loop over a given set of data and allow you to operate on each element in the collection. 
+cryptos = ['Bitcoin', 'Ethereum', 'Algorand', 'Polygon', 'Chainlink', 'MANA', 'XRP']
+x = 0
 
-names = ['Bob', 'Joe', 'Steve', 'Janice', 'Susan', 'Helen']
-x = 1
-
-names.each do |name|
-  puts "#{x}. #{name}"
+cryptos.each do |crypto| 
   x += 1
+  puts "#{x}. #{crypto}"
 end 
+
+
