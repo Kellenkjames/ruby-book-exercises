@@ -4,53 +4,62 @@
 puts "Exercise 1"
 
 arr = [1, 3, 5, 7, 9, 11]
-number = 15
+number = 3
 
-puts arr.include?(number)
+if arr.include?(number)
+  puts "#{number} is indeed in the array"
+end 
 
 puts "--------------------"
 
 #2 . What will the following programs return? What is the value of "arr" after each? 
 puts "Exercise 2"
 
-zed = ["b", "a"]
-zed = zed.product(Array(1..3)) 
-zed.first.delete(zed.first.last) 
+# arr = ["b", "a"]
+# arr = arr.product(Array(1..3)) 
+# arr.first.delete(arr.first.last) 
 
-zed = ["b", "a"]
-zed = zed.product([Array(1..3)])
-zed.first.delete(zed.first.last)
+# arr = ["b", "a"]
+# arr = arr.product([Array(1..3)])
+# arr.first.delete(arr.first.last)
+
+puts "--------------------"
 
 # 3. How do you return the word "example" from the following array? 
 puts "Exercise 3"
 
-test = [["test", "hello", "world"],["example", "mem"]]
+words = [["test", "hello", "world"],["example", "mem"]]
 
 # Example 
-puts test[1][0]
+p words.last.first
 
 puts "--------------------"
 
 # 4. What does each method return in the following example? 
 puts "Exercise 4"
 
-cool = [15, 7, 18, 5, 12, 8, 5, 1]
+numbers = [15, 7, 18, 5, 12, 8, 5, 1]
 
-cool.index(5) # 3 (first instance of the number 5)
+numbers.index(5) # 3 
 
-# cool.index[5] # Enumerator (neither block nor argument given)
+# numbers.index[5] # Enumerator (neither block nor argument given)
 
-cool[5] # 8
+numbers[5] # 8
 
 puts "--------------------"
 
 # 5. What is the value of a, b, and c in the following program
 puts "Exercise 5"
 
+# spaces are included in the index count
 string = "Welcome to America!"
-a = string[6] # "e"
-b = string[11] # "A"
+a = string[6] # e
+b = string[11] # A
 c = string[19] # nil 
+
+p a
+p b 
+p c
 
 puts "--------------------"
 
@@ -61,7 +70,7 @@ names = ['bob', 'joe', 'susan', 'margaret']
 
 #names['margaret'] = 'jody'
 
-# Problem: We are not accessing the string by its index value. It should be the following:
+# Problem: We cannot set the value of an item in an array using a "string" as the key. Arrays are indexed with integers, not strings. It should be the following
 names[3] = 'jody'
 
 puts "--------------------"
@@ -71,8 +80,8 @@ puts "Exercise 7"
 
 cryptocurrencies = ['Bitcoin', 'Ethereum', 'Algorand', 'Polygon', 'Chainlink', 'MANA', 'XRP']
 
-cryptocurrencies.each_with_index do |key, value| 
-  puts key, value
+cryptocurrencies.each_with_index do |crypto, index| 
+  puts "#{index + 1}. #{crypto}" 
 end
 
 puts "--------------------"
@@ -81,9 +90,8 @@ puts "--------------------"
 build_arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 new_arr = []
 
-build_arr.each do |i| 
-  i += 2
-  new_arr.push(i)
+build_arr.each do |n| 
+  new_arr << n + 2
 end 
 
 p build_arr
