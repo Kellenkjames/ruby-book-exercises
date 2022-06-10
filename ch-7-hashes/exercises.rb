@@ -10,12 +10,12 @@ family = {
   aunts: ["mary","sally","susan"]
 }
 
-new_arr = []
+immediate_family = family.select do |k, v| 
+  k == :sisters || k == :brothers
+end 
 
-new_arr << family.select { |title, names| title == :sisters} 
-new_arr << family.select { |title, names| title == :brothers} 
-
-puts new_arr
+arr = immediate_family.values.flatten
+p arr
 
 puts "-------------------------"
 
@@ -23,9 +23,7 @@ puts "-------------------------"
 
 # 2. Look at Ruby's merge method. Notice that it has two versions. What is the difference between merge and merge!? Write a program that uses both and illustrate the differences.
 
-merge = returns a new hash containing the contents of other_hash and the contents of hsh. 
-
-merge! = adds the contents of other_hash to hsh (destructively) - it replaces the original hsh
+# The difference is "merge!" modifies permanently, while "merge" does not. 
   
 =end
 
@@ -40,8 +38,8 @@ puts "Exercise 3"
 
 a_collection = {make: 'Toyota', model: "GR86", year: 2023, color: "red", price: 32000 }
 
-# puts a_collection.keys 
-# puts a_collection.values
+puts a_collection.keys 
+puts a_collection.values
 
 a_collection.each { |k, v| puts k => v }
 
@@ -52,7 +50,7 @@ puts "Exercise 4"
 
 person = {name: 'Bob', occupation: 'web developer', hobbies: 'painting'}
 
-puts person.first.last
+p person[:name]
 
 puts "-------------------------"
 
@@ -62,12 +60,23 @@ puts "Exercise 5"
 range = {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5 }
 
 # Check if the number 1 exists
-range.fetch(:a)
+if range.has_value?(4)
+  puts "Got it!"
+else 
+  puts "Nope!"
+end 
+
+puts "-------------------------"
 
 # 6. Given the following code... What's the difference between the two hashes that were created? 
+puts "Exercise 6"
+
 x = "hi there"
-my_hash = {x: "some value"} # { :x => "some value" } 
-my_hash2 = {x => "some value"} # {"hi there" => "some value"}
+my_hash = {x: "some value"} 
+my_hash2 = {x => "some value"} 
+
+p my_hash # { :x => "some value" } 
+p my_hash2 # {"hi there" => "some value"}
 
 # The difference: "x" cannot replace a key in a hash but it can replace a variable called "x"
 
@@ -75,5 +84,17 @@ puts "-------------------------"
 
 # 7. If you see this error, what do you suspect is the most likely problem? 
 
-# C. "keys" is an Array object, but it hasn't been defined yet. 
+=begin
+
+NoMethodError: undefined method 'keys' for Array
+
+This message tells us that we have invoked the method "keys" on an Array 
+
+Tip: Look at the documentation for the "Array" class and you will see there is no "keys" method
+
+B. There is no method called "keys" for Array objects. 
+
+=end
+
+
 
