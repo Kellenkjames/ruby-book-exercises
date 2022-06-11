@@ -39,8 +39,11 @@ puts "---------------------------------------"
 puts "Example 4"
 
 def test(b)
-  b.map! { |letter| "I like the letter: #{letter}"}
+  b.map { |letter| "I like the letter: #{letter}"}
 end 
 
-a = ['a', 'b', 'c']
-puts test(a)
+a = ['a', 'b', 'c'] # pointing to the "b" paramter | same as a = b 
+puts test(a) 
+
+# map: returns a new Array (non-destructive)
+# map!: replaces each element in the array with new return values (destructive)
