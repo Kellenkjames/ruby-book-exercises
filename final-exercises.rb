@@ -51,25 +51,48 @@ p a4
 p "----------------------"
 
 # 7. What's the major difference between an Array and a Hash? 
+puts "Exercise 7"
 
 =begin
- 
+
 Array: A data structure that holds a collection of elements i.e. strings, booleans, integers, etc.. (order doesn't matter)
 
 Hash: A data structure that is based on key-value pair relationships (values are accessed by their keys)
-  
+
 =end
 
+p "----------------------"
+
 # 8. Create a Hash, with one key-value pair, using both Ruby syntax styles. 
+puts "Exercise 8"
+
+# Ruby v.1.9 or later
 hash_one = { name: "Ricardo", age: 31, location: "Miami", occupation: "Engineer" }
+
+# Ruby v.1.8 or earlier (older syntax)
 hash_two = { "name" => "Ricardo", "age" => 31, "location" => "Miami", "occupation" => "Engineer"}
 
+# 9. Suppose you have a hash h = {a:1, b:2, c:3, d:4}
+h = {a:1, b:2, c:3, d:4}
 
+p "----------------------"
 
+# 1. Get the value of key ':b"
+p h[:b]
 
+p "----------------------"
 
+# 2. Add to this hash the key:value pair `{e:5}`
+h2 = h.merge({e:5})
+p h2 
 
+p "----------------------"
 
+# 3. Remove all key:value pairs whose value is less than 3.5 
+h2.delete_if { |key, value| value < 3.5 }
+p h2 
+
+# 10. 
 
 
 
