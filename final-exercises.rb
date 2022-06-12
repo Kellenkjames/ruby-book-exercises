@@ -50,7 +50,26 @@ p a4
 
 p "----------------------"
 
-# 7. 
+# 7. What's the major difference between an Array and a Hash? 
+
+=begin
+ 
+Array: A data structure that holds a collection of elements i.e. strings, booleans, integers, etc.. (order doesn't matter)
+
+Hash: A data structure that is based on key-value pair relationships (values are accessed by their keys)
+  
+=end
+
+# 8. Create a Hash, with one key-value pair, using both Ruby syntax styles. 
+hash_one = { name: "Ricardo", age: 31, location: "Miami", occupation: "Engineer" }
+hash_two = { "name" => "Ricardo", "age" => 31, "location" => "Miami", "occupation" => "Engineer"}
+
+
+
+
+
+
+
 
 
 
