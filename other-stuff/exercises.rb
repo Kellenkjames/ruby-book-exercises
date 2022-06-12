@@ -3,13 +3,11 @@
 # 1. Write a program that checks if the sequence of characters "lab" exists in the following strings. If it does exist, print out the word. 
 puts "Exercise 1"
 
-def reg_ex(string)
-  if /lab/ =~ string
-    puts "lab was found in the string #{string}."
-  elsif /lab/ =~ string.capitalize
-    puts "lab was found in the string #{string}."
+def reg_ex(word)
+  if /lab/i =~ word
+    puts "lab was found in the word #{word}."
   else 
-    puts "lab was not found in the string #{string}."
+    puts "lab was not found in the word #{word}."
   end
 end
 
@@ -24,7 +22,7 @@ p "---------------------------"
 # 2. What will the following program print to the screen? What will it return? 
 puts "Exercise 2"
 
-# Answer: This should print "nothing". To execute the method, you need to have block.call 
+# Answer: Nothing is printed to the screen because the block is never activated with the .call method. The method returns a Proc object. 
 def execute(&block)
   # before: block 
   block.call
@@ -38,23 +36,28 @@ p "---------------------------"
 puts "Exercise 3"
 
 =begin
-  
-Answer: Exception handling is a error handling method that allows the programmer to more easily see "where" errors are happening - it's mean to help with debugging. 
-  
+
+Answer: Exception handling is a structure used to handle the possiblity of an error occuring in a program. It is a way of handling the error by changing the flow of control without exiting the program entirely. 
+
 =end
 
 p "---------------------------"
 
 #4. Modify the code in exercise 2 to make the block execute properly.
+puts "Exercise 4"
+
+p "---------------------------"
 
 #5. Why does the following code... give us an error 
 
-# Answer: block is not being supplied as an argument - it should be (&block)
+# Answer: The method parameter "block" is missing the ampersand sign "&" that allows a block to be passed as a parameter. 
+puts "Exercise 5"
+
 def execute_2(block)
   block.call
 end 
 
-execute_2 { puts "Hello from inside the execute method!" }
+# execute_2 { puts "Hello from inside the execute method!" }
 
 
 
