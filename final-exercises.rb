@@ -3,7 +3,7 @@
 # 1. Use the "each" method of Array to iterate over [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], and print out each value. 
 puts "Exercise 1"
 
-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].each { |num| p num }
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].each { |num| p num}
 
 p "----------------------"
 
@@ -18,7 +18,7 @@ p "----------------------"
 puts "Exercise 3"
 
 a1   = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].select { |num| num.odd? }
-puts a1
+p a1
 
 p "----------------------"
 
@@ -26,10 +26,35 @@ p "----------------------"
 puts "Exercise 4"
 
 a2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].unshift(0).push(11)
-puts a2
+p a2
 
 p "----------------------"
 
 # 5. Get rid of "11" and append a "3"
+puts "Exercise 5"
+
+a3 = a2
+
+a3.pop
+a3.push(3)
+
+p a3
+
+p "----------------------"
+
+# 6. Get rid of duplicates without specifically removing any one value. 
+puts "Exercise 6"
+
+a4 = a3.uniq 
+p a4
+
+p "----------------------"
+
+# 7. 
+
+
+
+
+
 
 
