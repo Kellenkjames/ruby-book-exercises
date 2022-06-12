@@ -1,12 +1,13 @@
 # exercises.rb 
 
 # 1. Write a program that checks if the sequence of characters "lab" exists in the following strings. If it does exist, print out the word. 
-
 def reg_ex(string)
   if /lab/ =~ string
-      puts "lab was found in #{string}"
+    puts "lab was found in the string #{string}."
+  elsif /lab/ =~ string.capitalize
+    puts "lab was found in the string #{string}."
   else 
-    puts "lab sequence doesn't exist in string"
+    puts "lab was not found in the string #{string}."
   end
 end
 
