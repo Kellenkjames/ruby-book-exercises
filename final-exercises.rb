@@ -128,19 +128,32 @@ contacts = {"Joe Smith" => {}, "Sally Johnson" => {}}
 #    "Sally Johnson"=>{:email=>"sally@email.com", :address=>"404 Not Found Dr.",  :phone=>"123-234-3454"}
 #  }
 
-# Step 1: Convert arr to hash 
+# Step 1: Convert arr to hash (and push to arr)
 arr = []
 contact_data.each do |data|
   h = { :email => data[0], :address => data[1], :phone => data[2] }
   arr.push(h)
 end 
 
-# Step 2: Loop through contacts hash (value will come from above)
+# Step 2: Loop through contacts hash (and merge)
 contacts.each do |key, value| 
-  key => value
-end
+  if key == "Joe Smith"
+    value.merge!(arr[0])
+  elsif key == "Sally Johnson"
+    value.merge!(arr[1])
+  end 
+end  
 
 puts contacts
+
+
+
+
+
+
+
+
+
 
 
 
