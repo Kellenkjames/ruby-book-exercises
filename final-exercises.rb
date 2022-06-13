@@ -1,21 +1,21 @@
 # final-exercises.rb 
 
 # 1. Use the "each" method of Array to iterate over [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], and print out each value. 
-puts "Exercise 1"
+puts "Exercise 1" # Correct
 
-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].each { |num| p num}
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].each { |num| p num }
 
-p "----------------------"
+p "----------------------"  
 
 # 2. Same as above, but only print out values greater than 5. 
-puts "Exercise 2"
+puts "Exercise 2" # Correct
 
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].each { |num| p num if num > 5 }  
 
 p "----------------------"
 
 # 3. Now, using the same array from #2, use the "select" method to extract all odd numbers into a new array
-puts "Exercise 3"
+puts "Exercise 3" # Correct
 
 a1   = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].select { |num| num.odd? }
 p a1
@@ -23,7 +23,7 @@ p a1
 p "----------------------"
 
 # 4. Append "11" to the end of the original array. Prepend "0" to the beginning. 
-puts "Exercise 4"
+puts "Exercise 4" # Correct
 
 a2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].unshift(0).push(11)
 p a2
@@ -31,7 +31,7 @@ p a2
 p "----------------------"
 
 # 5. Get rid of "11" and append a "3"
-puts "Exercise 5"
+puts "Exercise 5" #Correct
 
 a3 = a2
 
@@ -43,7 +43,7 @@ p a3
 p "----------------------"
 
 # 6. Get rid of duplicates without specifically removing any one value. 
-puts "Exercise 6"
+puts "Exercise 6" # Correct
 
 a4 = a3.uniq 
 p a4
@@ -51,53 +51,60 @@ p a4
 p "----------------------"
 
 # 7. What's the major difference between an Array and a Hash? 
-puts "Exercise 7"
+puts "Exercise 7" # Correct
 
-=begin
+# The major difference between an array and a hash is that a hash contains a key value pair for referencing by key. 
 
-Array: A data structure that holds a collection of elements i.e. strings, booleans, integers, etc.. (order doesn't matter)
+# ex) 
+hash = { dog: 'fido', cat: 'fluffy' }
+array = ['fido', 'fluffy']
 
-Hash: A data structure that is based on key-value pair relationships (values are accessed by their keys)
-
-=end
+puts hash[:dog]
+puts array[0]
 
 p "----------------------"
 
 # 8. Create a Hash, with one key-value pair, using both Ruby syntax styles. 
 puts "Exercise 8"
 
-# Ruby v.1.9 or later
-hash_one = { name: "Ricardo", age: 31, location: "Miami", occupation: "Engineer" }
+# Old syntax
+hash_old = { :name => "bob" }
+puts hash_old
 
-# Ruby v.1.8 or earlier (older syntax)
-hash_two = { "name" => "Ricardo", "age" => 31, "location" => "Miami", "occupation" => "Engineer"}
+# Newer syntax 
+hash_new = { name: "bob" }
+puts hash_new
+
+p "----------------------"
 
 # 9. Suppose you have a hash h = {a:1, b:2, c:3, d:4}
 puts "Exercise 9"
 
-h = {a:1, b:2, c:3, d:4}
+h3 = {a:1, b:2, c:3, d:4}
 
 p "----------------------"
 
 # 1. Get the value of key ':b"
-p h[:b]
+p h3[:b]
 
 p "----------------------"
 
 # 2. Add to this hash the key:value pair `{e:5}`
-h2 = h.merge({e:5})
-p h2 
+p h3[:e] = 5
+
+p h3
 
 p "----------------------"
 
 # 3. Remove all key:value pairs whose value is less than 3.5 
-h2.delete_if { |key, value| value < 3.5 }
-p h2 
+h3.delete_if { |k, v| v < 3.5 }
+
+p h3
 
 p "----------------------"
 
 # 10. Can hash values be arrays? Can you have an array of hashes? (give examples)
-puts "Exercise 10"
+puts "Exercise 10" #Correct
 
 # Answer: hash values can be arrays, and you can have an array of hashes 
 
@@ -122,33 +129,21 @@ contact_data = [["joe@email.com", "123 Main st.", "555-123-4567"],
 
 contacts = {"Joe Smith" => {}, "Sally Johnson" => {}}
 
-# Expected output:
-#  {
-#    "Joe Smith"=>{:email=>"joe@email.com", :address=>"123 Main st.", :phone=>"555-123-4567"},
-#    "Sally Johnson"=>{:email=>"sally@email.com", :address=>"404 Not Found Dr.",  :phone=>"123-234-3454"}
-#  }
+p contacts["Joe Smith"][:email] = contact_data[0][0]
+p contacts["Joe Smith"][:address] = contact_data[0][1]
+p contacts["Joe Smith"][:phone] = contact_data[0][2]
 
-contacts_manual = {
-  "Joe Smith" => { :email => contact_data[0][0], :address => contact_data[0][1], :phone => contact_data[0][2]}, 
-  "Sally Johnson" => { :email => contact_data[1][0], :address => contact_data[1][1], :phone => contact_data[1][2]}
-}
-
-puts contacts_manual
+p contacts["Sally Johnson"][:email] = contact_data[1][0]
+p contacts["Sally Johnson"][:address] = contact_data[1][1]
+p contacts["Sally Johnson"][:phone] = contact_data[1][2]
 
 p "----------------------"
 
 # 12. Using the hash you created from the previous exercise, demonstrate how you would access Joe's email and Sally's phone number. 
 puts "Exercise 12"
 
-# Joe's email 
-puts "Joe's email"
-puts contacts_manual.fetch("Joe Smith").select { |k, v| k == :email }
-
-p "----------------------"
-
-# Sally's phone number
-puts "Sally's phone number"
-puts contacts_manual.fetch("Sally Johnson").select { |k, v| k == :phone }
+puts "Joe's email is: #{contacts["Joe Smith"][:email]}"
+puts "Sally's phone number is: #{contacts["Sally Johnson"][:phone]}"
 
 p "----------------------"
 
@@ -158,38 +153,35 @@ puts "Exercise 13"
 winter = ['snow', 'winter', 'ice', 'slippery', 'salted roads', 'white trees']
 
 winter.delete_if { |word| word.to_s.start_with?("s") }
-puts winter
+p winter
 
 p "----------------------"
 
 # Then recreate the arr and get rid of all of the strings that start with "s" or starts with "w".
-winter_two = ['snow', 'winter', 'ice', 'slippery', 'salted roads', 'white trees']
-
-winter_two.delete_if { |word| word.to_s.start_with?("s") || word.to_s.start_with?("w")}
-puts winter_two
+winter.delete_if { |word| word.to_s.start_with?("s", "w")}
+p winter
 
 p "----------------------"
 
 # 14. Take the following array: and turn it into a new array that consists of strings containing one word. (ex. ["white snow", etc...] → ["white", "snow", etc...]. Look into using Array's map and flatten methods, as well as String's split method.
 puts "Exercise 14"
 
-a = ['white snow', 'winter wonderland', 'melting ice',
+b = ['white snow', 'winter wonderland', 'melting ice',
      'slippery sidewalk', 'salted roads', 'white trees']
 
-a1 = a.map { |element| element.split(' ') }
-a2 = a1.flatten
-p a2 
-
-# Output: ["white", "snow", "winter", "wonderland", "melting", "ice", "slippery", "sidewalk", "salted", "roads", "white", "trees"]
+b = b.map { |pairs| pairs.split } # without an argument, this will split on the whitespace
+b = b.flatten
+p b
 
 p "----------------------"
 
 # 15. What will the following program output? 
 puts "Exercise 15"
 
-hash1 = {shoes: "nike", "hat" => "adidas", :hoodie => true}
-hash2 = {"hat" => "adidas", :shoes => "nike", hoodie: true}
+hash1 = { shoes: "nike", "hat" => "adidas", :hoodie => true }
+hash2 = {"hat" => "adidas", :shoes => "nike", hoodie: true }
 
+# order doesn't matter with hashes because we access elements by their "keys" --> order matters with "arrays"
 if hash1 == hash2
   puts "These hashes are the same!"
 else 
