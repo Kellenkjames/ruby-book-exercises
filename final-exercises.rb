@@ -135,7 +135,7 @@ contact_data.each do |data|
   arr.push(h)
 end 
 
-# Step 2: Loop through contacts hash (and merge)
+# Step 2: Loop through contacts hash (and merge values)
 contacts.each do |key, value| 
   if key == "Joe Smith"
     value.merge!(arr[0])
@@ -163,8 +163,35 @@ puts contacts.fetch("Sally Johnson").select { |k, v| k == :phone }
 
 p "----------------------"
 
+# 13. Use Ruby's Array method delete_if and String method start_with? to delete all of the strings that begin with an "s" in the following array.
+puts "Exercise 13"
 
+winter = ['snow', 'winter', 'ice', 'slippery', 'salted roads', 'white trees']
 
+winter.delete_if { |word| word.to_s.start_with?("s") }
+puts winter
+
+p "----------------------"
+
+# Then recreate the arr and get rid of all of the strings that start with "s" or starts with "w".
+winter_two = ['snow', 'winter', 'ice', 'slippery', 'salted roads', 'white trees']
+
+winter_two.delete_if { |word| word.to_s.start_with?("s") || word.to_s.start_with?("w")}
+puts winter_two
+
+p "----------------------"
+
+# 14. Take the following array: and turn it into a new array that consists of strings containing one word. (ex. ["white snow", etc...] → ["white", "snow", etc...]. Look into using Array's map and flatten methods, as well as String's split method.
+puts "Exercise 14"
+
+a = ['white snow', 'winter wonderland', 'melting ice',
+     'slippery sidewalk', 'salted roads', 'white trees']
+
+a1 = a.map { |element| element.split(' ') }
+a2 = a1.flatten
+p a2 
+
+# Output: ["white", "snow", "winter", "wonderland", "melting", "ice", "slippery", "sidewalk", "salted", "roads", "white", "trees"]
 
 
 
