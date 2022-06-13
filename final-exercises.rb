@@ -92,10 +92,20 @@ p "----------------------"
 h2.delete_if { |key, value| value < 3.5 }
 p h2 
 
-# 10. 
+# 10. Can hash values be arrays? Can you have an array of hashes? (give examples)
 
+# Answer: hash values can be arrays, and you can have an array of hashes 
 
+# ex (hash values as arrays)
+h_arr = { DeFi: ["Avalanche, Chainlink, Uniswap"], NFT: ["ApeCoin", "Polygon", "Enjin"] }
+puts h_arr
 
+# ex (array of hashes)
+arr_h = [ { name: "Bob", age: 32, city: "Atlanta", profession: "Engineer" }, 
+  {name: "Kalani", age:28, city: "Utah", profession: "Reality Star"},
+  {name: "Justin", age:18, city: "Nashville", profession: "Singer"}
+]
+puts arr_h
 
 
 
