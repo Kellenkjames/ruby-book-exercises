@@ -122,18 +122,18 @@ contact_data = [["joe@email.com", "123 Main st.", "555-123-4567"],
 
 contacts = {"Joe Smith" => {}, "Sally Johnson" => {}}
 
+# Expected output:
+#  {
+#    "Joe Smith"=>{:email=>"joe@email.com", :address=>"123 Main st.", :phone=>"555-123-4567"},
+#    "Sally Johnson"=>{:email=>"sally@email.com", :address=>"404 Not Found Dr.",  :phone=>"123-234-3454"}
+#  }
+
 contacts_manual = {
   "Joe Smith" => { :email => contact_data[0][0], :address => contact_data[0][1], :phone => contact_data[0][2]}, 
   "Sally Johnson" => { :email => contact_data[1][0], :address => contact_data[1][1], :phone => contact_data[1][2]}
 }
 
 puts contacts_manual
-
-# Expected output:
-#  {
-#    "Joe Smith"=>{:email=>"joe@email.com", :address=>"123 Main st.", :phone=>"555-123-4567"},
-#    "Sally Johnson"=>{:email=>"sally@email.com", :address=>"404 Not Found Dr.",  :phone=>"123-234-3454"}
-#  }
 
 p "----------------------"
 
@@ -142,13 +142,13 @@ puts "Exercise 12"
 
 # Joe's email 
 puts "Joe's email"
-puts contacts.fetch("Joe Smith").select { |k, v| k == :email }
+puts contacts_manual.fetch("Joe Smith").select { |k, v| k == :email }
 
 p "----------------------"
 
 # Sally's phone number
 puts "Sally's phone number"
-puts contacts.fetch("Sally Johnson").select { |k, v| k == :phone }
+puts contacts_manual.fetch("Sally Johnson").select { |k, v| k == :phone }
 
 p "----------------------"
 
@@ -203,6 +203,8 @@ p "----------------------"
 # 16. Challenge: In exercise 11, we manually set the contacts hash values one by one. Now, programmatically loop or iterate over the contacts hash from exercise 11, and populate the associated data from the contact_data array. Hint: you will probably need to iterate over ([:email, :address, :phone]), and some helpful methods might be the Array shift and first methods.
 puts "Challenge"
 
+# Note that this exercise is only concerned with dealing with 1 entry in the contacts hash, like this:
+
 p "----------------------"
 
 # Step 1: Convert arr to hash (and push to empty arr)
@@ -215,18 +217,13 @@ end
 # Step 2: Loop through contacts hash (and merge values)
 contacts.each do |key, value| 
   if key == "Joe Smith"
-    value.merge!(arr[0])
+  value.merge!(arr.first)
   elsif key == "Sally Johnson"
-    value.merge!(arr[1])
+    value.merge!(arr.last)
   end 
 end  
 
 puts contacts
-
-
-
-
-
 
 
 
