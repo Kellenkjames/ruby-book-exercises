@@ -114,7 +114,7 @@ puts arr_h
 
 p "----------------------"
 
-# 11. Given the following data structures, write a program that copies the information from the array into the empty hash that applies to the correct person
+# 11. Given the following data structures, write a program that copies the information from the array into the empty hash that applies to the correct person (one by one)
 puts "Exercise 11"
 
 contact_data = [["joe@email.com", "123 Main st.", "555-123-4567"],
@@ -122,29 +122,18 @@ contact_data = [["joe@email.com", "123 Main st.", "555-123-4567"],
 
 contacts = {"Joe Smith" => {}, "Sally Johnson" => {}}
 
+contacts_manual = {
+  "Joe Smith" => { :email => contact_data[0][0], :address => contact_data[0][1], :phone => contact_data[0][2]}, 
+  "Sally Johnson" => { :email => contact_data[1][0], :address => contact_data[1][1], :phone => contact_data[1][2]}
+}
+
+puts contacts_manual
+
 # Expected output:
 #  {
 #    "Joe Smith"=>{:email=>"joe@email.com", :address=>"123 Main st.", :phone=>"555-123-4567"},
 #    "Sally Johnson"=>{:email=>"sally@email.com", :address=>"404 Not Found Dr.",  :phone=>"123-234-3454"}
 #  }
-
-# Step 1: Convert arr to hash (and push to empty arr)
-arr = []
-contact_data.each do |data|
-  h = { :email => data[0], :address => data[1], :phone => data[2] }
-  arr.push(h)
-end 
-
-# Step 2: Loop through contacts hash (and merge values)
-contacts.each do |key, value| 
-  if key == "Joe Smith"
-    value.merge!(arr[0])
-  elsif key == "Sally Johnson"
-    value.merge!(arr[1])
-  end 
-end  
-
-puts contacts
 
 p "----------------------"
 
@@ -192,6 +181,48 @@ a2 = a1.flatten
 p a2 
 
 # Output: ["white", "snow", "winter", "wonderland", "melting", "ice", "slippery", "sidewalk", "salted", "roads", "white", "trees"]
+
+p "----------------------"
+
+# 15. What will the following program output? 
+puts "Exercise 15"
+
+hash1 = {shoes: "nike", "hat" => "adidas", :hoodie => true}
+hash2 = {"hat" => "adidas", :shoes => "nike", hoodie: true}
+
+if hash1 == hash2
+  puts "These hashes are the same!"
+else 
+  puts "These hashes are not the same!"
+end 
+  
+# Answer: These hashes are the same!(order does not matter when comparing hashes)
+
+p "----------------------"
+
+# 16. Challenge: In exercise 11, we manually set the contacts hash values one by one. Now, programmatically loop or iterate over the contacts hash from exercise 11, and populate the associated data from the contact_data array. Hint: you will probably need to iterate over ([:email, :address, :phone]), and some helpful methods might be the Array shift and first methods.
+puts "Challenge"
+
+p "----------------------"
+
+# Step 1: Convert arr to hash (and push to empty arr)
+arr = []
+contact_data.each do |data|
+  h = { :email => data[0], :address => data[1], :phone => data[2] }
+  arr.push(h)
+end 
+
+# Step 2: Loop through contacts hash (and merge values)
+contacts.each do |key, value| 
+  if key == "Joe Smith"
+    value.merge!(arr[0])
+  elsif key == "Sally Johnson"
+    value.merge!(arr[1])
+  end 
+end  
+
+puts contacts
+
 
 
 
