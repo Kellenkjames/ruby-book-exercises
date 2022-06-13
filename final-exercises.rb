@@ -128,7 +128,7 @@ contacts = {"Joe Smith" => {}, "Sally Johnson" => {}}
 #    "Sally Johnson"=>{:email=>"sally@email.com", :address=>"404 Not Found Dr.",  :phone=>"123-234-3454"}
 #  }
 
-# Step 1: Convert arr to hash (and push to arr)
+# Step 1: Convert arr to hash (and push to empty arr)
 arr = []
 contact_data.each do |data|
   h = { :email => data[0], :address => data[1], :phone => data[2] }
@@ -146,8 +146,22 @@ end
 
 puts contacts
 
+p "----------------------"
 
+# 12. Using the hash you created from the previous exercise, demonstrate how you would access Joe's email and Sally's phone number. 
+puts "Exercise 12"
 
+# Joe's email 
+puts "Joe's email"
+puts contacts.fetch("Joe Smith").select { |k, v| k == :email }
+
+p "----------------------"
+
+# Sally's phone number
+puts "Sally's phone number"
+puts contacts.fetch("Sally Johnson").select { |k, v| k == :phone }
+
+p "----------------------"
 
 
 
