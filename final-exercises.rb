@@ -73,6 +73,8 @@ hash_one = { name: "Ricardo", age: 31, location: "Miami", occupation: "Engineer"
 hash_two = { "name" => "Ricardo", "age" => 31, "location" => "Miami", "occupation" => "Engineer"}
 
 # 9. Suppose you have a hash h = {a:1, b:2, c:3, d:4}
+puts "Exercise 9"
+
 h = {a:1, b:2, c:3, d:4}
 
 p "----------------------"
@@ -92,7 +94,10 @@ p "----------------------"
 h2.delete_if { |key, value| value < 3.5 }
 p h2 
 
+p "----------------------"
+
 # 10. Can hash values be arrays? Can you have an array of hashes? (give examples)
+puts "Exercise 10"
 
 # Answer: hash values can be arrays, and you can have an array of hashes 
 
@@ -106,6 +111,47 @@ arr_h = [ { name: "Bob", age: 32, city: "Atlanta", profession: "Engineer" },
   {name: "Justin", age:18, city: "Nashville", profession: "Singer"}
 ]
 puts arr_h
+
+p "----------------------"
+
+# 11. Given the following data structures, write a program that copies the information from the array into the empty hash that applies to the correct person
+puts "Exercise 11"
+
+contact_data = [["joe@email.com", "123 Main st.", "555-123-4567"],
+["sally@email.com", "404 Not Found Dr.", "123-234-3454"]]
+
+contacts = {"Joe Smith" => {}, "Sally Johnson" => {}}
+
+# Expected output:
+#  {
+#    "Joe Smith"=>{:email=>"joe@email.com", :address=>"123 Main st.", :phone=>"555-123-4567"},
+#    "Sally Johnson"=>{:email=>"sally@email.com", :address=>"404 Not Found Dr.",  :phone=>"123-234-3454"}
+#  }
+
+# Step 1: Convert arr to hash 
+arr = []
+contact_data.each do |data|
+  h = { :email => data[0], :address => data[1], :phone => data[2] }
+  arr.push(h)
+end 
+
+# Step 2: Loop through contacts hash (value will come from above)
+contacts.each do |key, value| 
+  key => value
+end
+
+puts contacts
+
+
+
+
+
+
+
+
+
+
+
 
 
 
