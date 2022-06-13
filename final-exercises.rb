@@ -1,21 +1,21 @@
 # final-exercises.rb 
 
 # 1. Use the "each" method of Array to iterate over [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], and print out each value. 
-puts "Exercise 1" # Correct
+puts "Exercise 1" 
 
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].each { |num| p num }
 
 p "----------------------"  
 
 # 2. Same as above, but only print out values greater than 5. 
-puts "Exercise 2" # Correct
+puts "Exercise 2" 
 
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].each { |num| p num if num > 5 }  
 
 p "----------------------"
 
 # 3. Now, using the same array from #2, use the "select" method to extract all odd numbers into a new array
-puts "Exercise 3" # Correct
+puts "Exercise 3" 
 
 a1   = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].select { |num| num.odd? }
 p a1
@@ -23,7 +23,7 @@ p a1
 p "----------------------"
 
 # 4. Append "11" to the end of the original array. Prepend "0" to the beginning. 
-puts "Exercise 4" # Correct
+puts "Exercise 4" 
 
 a2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].unshift(0).push(11)
 p a2
@@ -43,7 +43,7 @@ p a3
 p "----------------------"
 
 # 6. Get rid of duplicates without specifically removing any one value. 
-puts "Exercise 6" # Correct
+puts "Exercise 6" 
 
 a4 = a3.uniq 
 p a4
@@ -51,7 +51,7 @@ p a4
 p "----------------------"
 
 # 7. What's the major difference between an Array and a Hash? 
-puts "Exercise 7" # Correct
+puts "Exercise 7" 
 
 # The major difference between an array and a hash is that a hash contains a key value pair for referencing by key. 
 
@@ -199,23 +199,20 @@ puts "Challenge"
 
 p "----------------------"
 
-# Step 1: Convert arr to hash (and push to empty arr)
-arr = []
-contact_data.each do |data|
-  h = { :email => data[0], :address => data[1], :phone => data[2] }
-  arr.push(h)
+contact_data = [["joe@email.com", "123 Main st.", "555-123-4567"],
+["sally@email.com", "404 Not Found Dr.", "123-234-3454"]]
+contacts = {"Joe Smith" => {}, "Sally Johnson" => {} }
+fields = [:email, :address, :phone]
+
+# Bonus 
+contacts.each_with_index do |(name, hash), idx| 
+  fields.each do |field|
+    hash[field] = contact_data[idx].shift 
+  end  
 end 
 
-# Step 2: Loop through contacts hash (and merge values)
-contacts.each do |key, value| 
-  if key == "Joe Smith"
-  value.merge!(arr.first)
-  elsif key == "Sally Johnson"
-    value.merge!(arr.last)
-  end 
-end  
+p contacts
 
-puts contacts
 
 
 
